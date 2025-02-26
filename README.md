@@ -22,7 +22,6 @@ React와 Node.js를 사용한 사물함 관리 시스템입니다. 사물함 배
 
 ```bash
 git clone [repository-url]
-cd locker-management
 ```
 
 2. 데이터베이스 설정
@@ -54,23 +53,24 @@ CREATE TABLE IF NOT EXISTS users (
 );
 ```
 
-3. 백엔드 서버 설정
+3. 프론트엔드 설정
 
 ```bash
-cd server
+# 프로젝트 루트 디렉토리에서
 npm install
 ```
 
-4. 프론트엔드 설정
+4. 백엔드 설정
 
 ```bash
-cd locker-management
+# 프로젝트 루트 디렉토리에서
+cd backend
 npm install
 ```
 
 5. 환경 변수 설정
 
-- server/.env 파일 생성:
+- backend/.env 파일 생성:
 
 ```env
 DB_HOST=localhost
@@ -83,17 +83,16 @@ PORT=5000
 
 ## 실행 방법
 
-1. 백엔드 서버 실행
+1. 백엔드 서버 실행 (새 터미널에서)
 
 ```bash
-cd server
+cd backend
 node src/server.js
 ```
 
-2. 프론트엔드 실행
+2. 프론트엔드 실행 (새 터미널에서)
 
 ```bash
-cd locker-management
 npm start
 ```
 
@@ -119,22 +118,24 @@ npm start
 ## 프로젝트 구조
 
 ```
-locker-management/
-├── src/
-│   ├── components/
+locker-management/           # 프로젝트 루트
+├── public/                 # 정적 파일
+├── src/                    # 프론트엔드 소스
+│   ├── components/        # React 컴포넌트
 │   │   ├── Locker.tsx
 │   │   ├── LockerGrid.tsx
 │   │   └── LockerManagement.tsx
-│   ├── services/
+│   ├── services/         # API 서비스
 │   │   └── lockerService.ts
-│   ├── types/
+│   ├── types/           # TypeScript 타입 정의
 │   │   └── types.ts
-│   └── App.tsx
-└── server/
-    ├── src/
-    │   ├── db.js
-    │   └── server.js
-    └── package.json
+│   └── App.tsx          # 메인 앱 컴포넌트
+├── backend/              # 백엔드 소스
+│   ├── src/
+│   │   ├── db.js       # 데이터베이스 설정
+│   │   └── server.js   # Express 서버
+│   └── package.json    # 백엔드 의존성
+└── package.json        # 프론트엔드 의존성
 ```
 
 ## 라이선스
